@@ -8,9 +8,10 @@
 			.auth-form{
 				position: relative;
 				top: 50px;
-				width: 521px;
+				width: 800px;
 				margin-left: auto;
 				margin-right: auto;
+				font-size: 11pt;
 			}
 
 			input:hover{
@@ -41,22 +42,22 @@
 			}
 
 			.auth-form__email__input{
-				float: left;
+				float: right;
 				width: 368px;
 				margin-left: 37px;
 			}
 	
 
 			.auth-form__date__dayinput{
-				float: left;
+				float: right;
 				width: 25px;
-				margin-left:30px;
+				
 				margin-right: 10px;
 
 			}
 
 			.auth-form__date__monthinput{
-				float: left;
+				float: right;
 				margin-left: 20px;
 				margin-right: 10px;
 			}
@@ -74,16 +75,24 @@
 				margin-left: 5px;
 				font-family: Georgia, 'Times New Roman', Times, serif;
 			}
+
+			.auth-form__span{
+				float: right;
+				position: relative;
+				top: 3px;
+				margin-right: 5px;
+				font-family: Georgia, 'Times New Roman', Times, serif;
+			}
 			.auth-form__login__text{
-				float: left;
+				float: right;
 				width: 368px;
 				margin-left: 10px;
 			}
 
 			.auth-form__password__input{
-				float: left;
+				float: right;
 				width: 192px;
-				margin-left: 57px;
+			
 				margin-right: 5px;
 			}
 
@@ -91,6 +100,10 @@
 				content: "Click to send";
 			}
 
+			.auth-form__submit{
+				float: right;
+				margin-right: 5px;
+			}
 
 
 		</style>
@@ -118,13 +131,13 @@
 				</div>
 				
 					<input class="auth-form__date__dayinput" name="dateday" maxlength="2" required placeholder="1">
-				<div class="auth-form__label">
-					Day
-				</div>	
+				
+					<span class="auth-form__span">Day</span>
+			
 					<input class="auth-form__date__monthinput" name="month" type="month" required>
-				<div class="auth-form__label">
-					Month and year
-				</div>
+			
+					<span class="auth-form__span">Month and year</span>
+				
 
 			</div>
 
@@ -133,10 +146,11 @@
 				<div class="auth-form__label">
 					Password
 				</div>
-				<input class="auth-form__password__input" type="password" name="password" required>
 				<div class="auth-form__submit">
 					<input type="submit" name="submit">	
 				</div>
+				<input class="auth-form__password__input" type="password" name="password" required>
+				
 			</div>
 		</form>			
 		</div>
