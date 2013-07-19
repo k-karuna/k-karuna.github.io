@@ -2,6 +2,47 @@
 <html>
 	<head>
 		<script type="text/javascript">(function() {var walkme = document.createElement('script'); walkme.type = 'text/javascript'; walkme.async = true; walkme.src = 'http://cdn.walkme.com/users/0e1c6fffa66441848e7ef5c9f1006605/walkme_0e1c6fffa66441848e7ef5c9f1006605.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(walkme, s);})();</script>
+
+		<script language='javascript' type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'>
+		</script>
+
+
+
+<script>
+function walkme_ready()
+{
+	buildWalkthruMenu();
+}
+
+function buildWalkthruMenu()
+{
+	var walkthrusList = WalkMeAPI.getWalkthrus(true);
+	
+	var walkthrusBlock = "<div style='position: fixed; top: 0; left: 0;'><table style='background-color: blue; color: white;'>";
+	var walkthrusShown = 0;
+	
+	for (var i = 0; i < walkthrusList.length; i++) 
+	{
+		if (walkthrusList[i].ConditionsPassed) 
+		{
+			walkthrusShown++;
+				
+			walkthrusBlock += '<tr><td title="' + walkthrusList[i].Name + '" onclick="WalkMeAPI.startWalkthruById(' + walkthrusList[i].Id + ')"><span>' +
+			walkthrusShown +
+			'. ' +
+			walkthrusList[i].Name +
+			'</span></td></tr>';
+		}				
+	}
+	
+	walkthrusBlock += "</table></div>";
+	
+	// Requires jQuery
+	$("body").append(walkthrusBlock);
+}
+</script>
+
+		
 		
 	</head>
 	<body>
@@ -109,6 +150,7 @@
 
 		</style>
 		<div class="auth-form">
+		
 			<form action="http://google.com" method="GET">
 			<div class="auth-form__login">
 				<div class="auth-form__label">
