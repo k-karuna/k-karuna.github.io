@@ -1,0 +1,4 @@
+.walkme-custom-balloon-outer-div
+.walkme-custom-balloon-powered-by-div
+
+walkme_event = function(event) {console.log(event); if(event.Type == "NewStepShown") { console.log(event.Type); var div = document.querySelector(".walkme-custom-balloon-outer-div"); div = div.querySelector(".walkme-custom-balloon-powered-by-div"); console.log(div); div.innerHTML = ''; } }
