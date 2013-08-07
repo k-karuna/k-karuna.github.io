@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)https://limg1.imgsmail.ru/s/images/cdn.v3.html?r1=188&r2=70&ip=185.6.247.97&rnd=13758844822420.4417005404829979 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<title>radars</title>
+</head>
+<body>
+	<script>
+
+		var region = (function(href){
+			var r = {};
+
+			href = href.split('#')[0].split('?')[1].split('&');
+
+			for (var i = 0, l = href.length; i < l; i++){
+				var p = href[i].split('=');
+
+				if (p[0] == 'r1' || p[0] == 'r2' || p[0] == 'ip'){
+					r[p[0]] = p[1];
+				}
+			}
+
+			return r;
+		})(location.href);
+
+		function createRadar(name, iZ, log){
+			var data	= {};
+			var radar	= function (s, x, time)
+			{
+				if( s == 'clear' ){ data = {}; }
+				else if( typeof s == 'string' ){
+					if (s !== 'all'){
+						s = 'R' + (region.r2 || region.r1) + '_' + s;
+					}
+
+					if( x == 1 && data[s] && !data[s][1] ){
+						if (typeof time === 'number'){
+							data[s][1] = time;
+						} else {
+							data[s][1] = +new Date;
+						}
+					}
+					else if( x != 1 && !data[s] ){
+						if (typeof time === 'number'){
+							data[s] = [time, 0]
+						} else {
+							data[s] = [+new Date, 0];
+						}
+					}
+				} else {
+					var i = [], a, v, k, dt;
+					for( k in data ) if( data.hasOwnProperty(k) )
+					{
+						v = data[k];
+						dt = v[1] - v[0];
+						if( dt < 0 )
+						{
+							data = {};
+							return;
+						}
+						else if( iZ && !dt ) continue;
+						i.push(k +':'+ dt);
+						if( k == 'all' ) a = dt;
+					}
+					if( i.length && a ) {
+						var src = '//splash.radar.imgsmail.ru/update?p=splash&t='+ name +'&v='+ a +'&i='+ i.join(',') +'&rnd='+ Math.random() + (document.referrer ? '&r='+ escape(document.referrer) : '');
+						(new Image).src = src;
+
+						i.push('ip:' + region.ip);
+
+						(new Image).src = '//gstat.imgsmail.ru/gstat?logme=' + encodeURIComponent(i.join(',')) + '&rnd=' + (new Date()).getTime() + Math.random();
+
+						//alert(src)
+					}
+					data = {};
+				}
+				return	radar;
+			};
+			radar.clear	= function (){ data = {}; return radar; };
+			return	radar;
+		}
+
+		window.onload = function(){
+
+			if (window.performance && window.performance.timing){
+				var splashRadar = createRadar('limg'),
+					t = window.performance.timing;
+
+				splashRadar('all', 0, 1);
+
+				if (t.connectStart && t.connectEnd){
+					var connect = 'connect' + (t.connectStart - t.connectEnd == 0 ? '0' : '');
+					splashRadar(connect, 0, t.connectStart)('connect', 1, t.connectEnd);
+				}
+
+				if (t.domainLookupStart && t.domainLookupEnd){
+					var domainLookup = 'domainLookup' + (t.domainLookupEnd - t.domainLookupStart == 0 ? '0' : '');
+					splashRadar(domainLookup, 0, t.domainLookupStart)(domainLookup, 1, t.domainLookupEnd);
+				}
+
+				if (t.requestStart && t.responseStart){
+					splashRadar('request', 0, t.requestStart)('request', 1, t.responseStart);
+				}
+
+				if (t.responseStart && t.responseEnd){
+					splashRadar('response', 0, t.responseStart)('response', 1, t.responseEnd);
+				}
+
+				splashRadar('all', 1, 2)(true);
+			}
+		};
+
+	</script>
+
+
+</body></html>
