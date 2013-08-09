@@ -101,7 +101,6 @@ function buildSnake(n) {
     document.getElementsByClassName('newDiv')[0].innerHTML = '';
     food.classList.add('newDiv__inner');
     food.style.backgroundColor = 'red';
-    createFood();
     
     snake.len = n;
     for (var i = n; i > 0; i--) {
@@ -226,23 +225,15 @@ function createFood() {
     var arr = [0, 55, 110, 165, 220, 275, 330, 385, 440, 495];
     var x = arr[Math.floor(Math.random() * (10))];
     var y = arr[Math.floor(Math.random() * (10))];
-    var flag = true;
 
-    while (flag){
     for (var i = 0; i < snake.len; i++){
+
       if (parseInt(snake.body[i].style.left) == x && parseInt(snake.body[i].style.top) == y){
-        flag = true;
+        i = 0;
         x = arr[Math.floor(Math.random() * (10))];
         y = arr[Math.floor(Math.random() * (10))];
-        break;
+      
       }
-      }
-      flag = false;
-    }
-
-    while (parseInt(food.style.left) == x && parseInt(food.style.topy) == y){
-      x = arr[Math.floor(Math.random() * (10))];
-      y = arr[Math.floor(Math.random() * (10))];
     }
 
     food.style.left = x + "px";
