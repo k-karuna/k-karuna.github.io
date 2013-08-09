@@ -127,7 +127,7 @@ var tempX, tempY;
 
 
 
-function isFood(x, y) {
+function isFood(x, y, dir) {
     if (x == parseInt(food.style.left) && y == parseInt(food.style.top)) {
         snake.body[0].style.backgroundColor = "black";
         
@@ -142,6 +142,7 @@ function isFood(x, y) {
         document.getElementsByClassName('newDiv')[0].appendChild(newHead);
         food.remove();
         snake.body[0] = newHead;
+        snake.direction = dir;
         snake.len++;
         createFood();
         return true;
@@ -270,7 +271,7 @@ function handler(event) {
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
-                    } else if (isFood(tempX - 55, tempY)) {
+                    } else if (isFood(tempX - 55, tempY, 'left')) {
                         break
                     } 
                     else {
@@ -304,7 +305,7 @@ function handler(event) {
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
-                    } else if (isFood(tempX, tempY - 55)) {
+                    } else if (isFood(tempX, tempY - 55, 'top')) {
                         break
                     } 
                     else {
@@ -334,7 +335,7 @@ function handler(event) {
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
-                    } else if (isFood(tempX + 55, tempY)) {
+                    } else if (isFood(tempX + 55, tempY, 'right')) {
                         break
                     } 
                     else {
@@ -365,7 +366,7 @@ function handler(event) {
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
-                    } else if (isFood(tempX, tempY + 55)) {
+                    } else if (isFood(tempX, tempY + 55, 'bottom')) {
                         break
                     } 
                     else {
