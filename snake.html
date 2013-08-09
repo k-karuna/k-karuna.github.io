@@ -72,12 +72,13 @@
 </body>
 <script>
 
+
 document.addEventListener('keydown', handler);
 
 var snake = {
-  body: [],
-  route: 0,
-  direction : "right"
+    body: [],
+    route: 0,
+    direction: "right"
 }
 var snkLen = 5;
 
@@ -85,34 +86,38 @@ var snkLen = 5;
 
 var text = document.getElementById('len');
 
-function clearSnake(){
-  snake = {
-  body: [],
-  route: 0,
-  direction : "right"
-}
+
+function clearSnake() {
+    snake = {
+        body: [],
+        route: 0,
+        direction: "right"
+    }
 
 }
 var food = document.createElement('div');
-function buildSnake(n){
+function buildSnake(n) {
     document.getElementsByClassName('newDiv')[0].innerHTML = '';
     food.classList.add('newDiv__inner');
-  food.style.backgroundColor = 'red';
-  createFood();
-
+    food.style.backgroundColor = 'red';
+    createFood();
+    
     snake.len = n;
-    for (var i = n; i > 0; i--){
-      var element = document.createElement('div');
+    for (var i = n; i > 0; i--) {
+        var element = document.createElement('div');
+        
+        element.classList.add('newDiv__inner');
+        element.id = n - i;
+        element.style.left = (55 * (i - 1)) + "px";
+        element.style.top = "0px";
+        document.getElementsByClassName('newDiv')[0].appendChild(element);
+        snake.body[n - i] = element;
+        if (i == n)
+            element.style.backgroundColor = "rgb(34, 110, 59)";
+    }
+    snake.foodAm = -1;
+    createFood();
 
-      element.classList.add('newDiv__inner');
-      element.id = n - i;
-      element.style.left = (55 * (i - 1)) + "px";
-      element.style.top = "0px";
-      document.getElementsByClassName('newDiv')[0].appendChild(element);
-      snake.body[n - i] = element;
-      if (i == n) element.style.backgroundColor = "rgb(34, 110, 59)";
-      }
-     
 }
 
 buildSnake(snkLen);
@@ -121,230 +126,265 @@ var tempX, tempY;
 
 
 
-function isFood(x, y){
-  if (x == parseInt(food.style.left) && y == parseInt(food.style.top)){
-    snake.body[0].style.backgroundColor = "black";
-
-    for (var i = snake.len + 1; i > 0; i--){
-      snake.body[i] = snake.body[i - 1]; 
-    }
-    var newHead = document.createElement('div');
-    newHead.classList.add('newDiv__inner');
-    newHead.style.left = food.style.left;
-    newHead.style.top = food.style.top;
-    newHead.style.backgroundColor = 'rgb(34, 110, 59)';
-    document.getElementsByClassName('newDiv')[0].appendChild(newHead);
-    food.remove();
-    snake.body[0] = newHead;
-    snake.len++;
-    createFood();
-    return true;
-  }
-  return false;
-}
-
-function chekCross(direction){
-  var furthX, furthY;
-  var flag = false;
-  switch(direction){
-
-    case "right": 
-    furthX = parseInt(snake.body[0].style.left) + 55;
-    furthY = parseInt(snake.body[0].style.top);
-
-    for(var i = 3; i < snake.len - 1; i++){
-      if ( furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4) 
-        flag = true;
-      }
-
-      break
-
-    case "left":
-    furthX = parseInt(snake.body[0].style.left) - 55;
-    furthY = parseInt(snake.body[0].style.top);
-
-    for(var i = 3; i < snake.len - 1; i++){
-      if ( furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4) 
-        flag = true;
-      }
-      break
-
-      case "top":
-      furthX = parseInt(snake.body[0].style.left);
-      furthY = parseInt(snake.body[0].style.top) - 55;
-      for(var i = 3; i < snake.len - 1; i++){
-      if ( furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4) 
-        flag = true;
-      }
-      break
-
-      case "bottom":
-      furthX = parseInt(snake.body[0].style.left);
-      furthY = parseInt(snake.body[0].style.top) + 55;
-      for(var i = 3; i < snake.len - 1; i++){
-      if ( furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4) 
-        flag = true;
-      } 
-      break
-
-  }
-  return flag;
-}
-
-function moveBody(x, y){
-  var arr = [];
-  snake.route++;
-
-  for(var i = 1; i < snake.len; i++){
-    var obj = {
-      X: parseInt(snake.body[i].style.left) || 0,
-      Y: parseInt(snake.body[i].style.top) || 0
-    }
-
-    arr[i] = obj;
-  }
-
-  snake.body[1].style.left = x + "px";
-  snake.body[1].style.top = y + "px";
-
-  for (var i = 2; i < snake.len; i++ ){
-
-    snake.body[i].style.left = arr[i - 1].X + "px";
-    snake.body[i].style.top = arr[i- 1].Y + "px";
-  }
-}
-
-function createFood(){
-  var arr = [0, 55, 110, 165, 220, 275, 330, 385, 440, 495];
-  food.style.left = arr[Math.floor(Math.random() * (10))] + 'px';
-  food.style.top = arr[Math.floor(Math.random() * (10))] + 'px';
-  document.getElementsByClassName('newDiv')[0].appendChild(food);
-
-
-}
-
-function handler(event){
-
-
-switch (event.keyCode){
-
-case 37: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; else {
-        if(parseInt(snake.body[0].style.left) != 0 && snake.direction != "right"){
+function isFood(x, y) {
+    if (x == parseInt(food.style.left) && y == parseInt(food.style.top)) {
+        snake.body[0].style.backgroundColor = "black";
         
-        tempX = parseInt(snake.body[0].style.left) || 0;
-        tempY = parseInt(snake.body[0].style.top) || 0;
-        if(chekCross("left")) {
-        alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-        document.getElementsByClassName('newDiv')[0].innerHTML = '';
-        clearSnake();
-        buildSnake(snkLen);
-        } else if (isFood(tempX - 55, tempY)){
-          break
+        for (var i = snake.len + 1; i > 0; i--) {
+            snake.body[i] = snake.body[i - 1];
         }
-        else{
-        snake.body[0].style.left = (parseInt(snake.body[0].style.left) - 55) + "px";
-        moveBody(tempX, tempY);
-        snake.direction = "left"; 
-        }
-        } else
-        {
-        alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-        document.getElementsByClassName('newDiv')[0].innerHTML = '';
-        clearSnake();
-        buildSnake(snkLen);
-        }
+        var newHead = document.createElement('div');
+        newHead.classList.add('newDiv__inner');
+        newHead.style.left = food.style.left;
+        newHead.style.top = food.style.top;
+        newHead.style.backgroundColor = 'rgb(34, 110, 59)';
+        document.getElementsByClassName('newDiv')[0].appendChild(newHead);
+        food.remove();
+        snake.body[0] = newHead;
+        snake.len++;
+        createFood();
+        return true;
+    }
+    return false;
+}
 
-
+function chekCross(direction) {
+    var furthX, furthY;
+    var flag = false;
+    switch (direction) {
         
-        }
-
-        break
-case 38: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px'; else {
-            if(parseInt(snake.body[0].style.top) != 0 && snake.direction != "bottom"){
-              
-              tempX = parseInt(snake.body[0].style.left) || 0;
-              tempY = parseInt(snake.body[0].style.top) || 0;
-              if (chekCross("top")) {
-              alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-              document.getElementsByClassName('newDiv')[0].innerHTML = '';
-              clearSnake();
-              buildSnake(snkLen);
-              } else if(isFood(tempX, tempY - 55)){
-                break
-              }
-              else{
-              snake.body[0].style.top = (parseInt(snake.body[0].style.top) - 55) + "px";
-              moveBody(tempX, tempY);
-              snake.direction = "top";
-              }
-}        else {
-            alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-            document.getElementsByClassName('newDiv')[0].innerHTML = '';
-            clearSnake();
-            buildSnake(snkLen);
-          }
-             
-          }
-         break
-case 39: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; {
-        if(snake.body[0].style.left != '495px' && snake.direction != "left"){
-          
-          tempX = parseInt(snake.body[0].style.left) || 0;
-          tempY = parseInt(snake.body[0].style.top) || 0;
-          if (chekCross("right")) {
-            alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-            document.getElementsByClassName('newDiv')[0].innerHTML = '';
-            clearSnake();
-            buildSnake(snkLen);
-          } else if (isFood(tempX + 55, tempY)) {
-            break
-          }
-          else {
-              snake.body[0].style.left = (parseInt(snake.body[0].style.left) + 55) + "px";
-              moveBody(tempX, tempY);
-              snake.direction = "right";
-              }
-}        else {
-                alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-              document.getElementsByClassName('newDiv')[0].innerHTML = '';
-              clearSnake();
-              buildSnake(snkLen);
-              }
-              
+        case "right":
+            furthX = parseInt(snake.body[0].style.left) + 55;
+            furthY = parseInt(snake.body[0].style.top);
+            
+            for (var i = 3; i < snake.len - 1; i++) {
+                if (furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4)
+                    flag = true;
             }
-         break
-
-case 40: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px';  {
-            if(snake.body[0].style.top != '495px' && snake.direction != "top"){
-              
-              tempX = parseInt(snake.body[0].style.left) || 0;
-              tempY = parseInt(snake.body[0].style.top) || 0;
-              if (chekCross("bottom")) {
-              alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-              document.getElementsByClassName('newDiv')[0].innerHTML = '';
-              clearSnake();
-              buildSnake(snkLen);
-              } else if (isFood(tempX, tempY + 55)){
-                break
-              }
-              else{
-              snake.body[0].style.top = (parseInt(snake.body[0].style.top) + 55) + "px";
-              moveBody(tempX, tempY);
-              snake.direction = "bottom";
-              }
-}        else{
-              alert('Вы проиграли' + "\n" + 'Ваш счет: ' + snake.route);
-              document.getElementsByClassName('newDiv')[0].innerHTML = '';
-              clearSnake();
-              buildSnake(snkLen);
-
-              } 
-              return
-          }
-         break
+            
+            break
+        
+        case "left":
+            furthX = parseInt(snake.body[0].style.left) - 55;
+            furthY = parseInt(snake.body[0].style.top);
+            
+            for (var i = 3; i < snake.len - 1; i++) {
+                if (furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4)
+                    flag = true;
+            }
+            break
+        
+        case "top":
+            furthX = parseInt(snake.body[0].style.left);
+            furthY = parseInt(snake.body[0].style.top) - 55;
+            for (var i = 3; i < snake.len - 1; i++) {
+                if (furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4)
+                    flag = true;
+            }
+            break
+        
+        case "bottom":
+            furthX = parseInt(snake.body[0].style.left);
+            furthY = parseInt(snake.body[0].style.top) + 55;
+            for (var i = 3; i < snake.len - 1; i++) {
+                if (furthX == parseInt(snake.body[i].style.left) && furthY == parseInt(snake.body[i].style.top) && snake.len > 4)
+                    flag = true;
+            }
+            break
+    
+    }
+    return flag;
 }
-text.innerHTML = "Проехали: " + "<strong>" + snake.route + "</strong>";
-}    
+
+function moveBody(x, y) {
+    var arr = [];
+    snake.route++;
+    
+    for (var i = 1; i < snake.len; i++) {
+        var obj = {
+            X: parseInt(snake.body[i].style.left) || 0,
+            Y: parseInt(snake.body[i].style.top) || 0
+        }
+        
+        arr[i] = obj;
+    }
+    
+    snake.body[1].style.left = x + "px";
+    snake.body[1].style.top = y + "px";
+    
+    for (var i = 2; i < snake.len; i++) {
+        
+        snake.body[i].style.left = arr[i - 1].X + "px";
+        snake.body[i].style.top = arr[i - 1].Y + "px";
+    }
+}
+
+function createFood() {
+    snake.foodAm++;
+    var arr = [0, 55, 110, 165, 220, 275, 330, 385, 440, 495];
+    var x = arr[Math.floor(Math.random() * (10))];
+    var y = arr[Math.floor(Math.random() * (10))];
+    var flag = true;
+
+    while (flag){
+    for (var i = 0; i < snake.len; i++){
+      if (parseInt(snake.body[i].style.left) == x && parseInt(snake.body[i].style.top) == y){
+        flag = true;
+        x = arr[Math.floor(Math.random() * (10))];
+        y = arr[Math.floor(Math.random() * (10))];
+        break;
+      }
+      }
+      flag = false;
+    }
+
+    while (parseInt(food.style.left) == x && parseInt(food.style.topy) == y){
+      x = arr[Math.floor(Math.random() * (10))];
+      y = arr[Math.floor(Math.random() * (10))];
+    }
+
+    food.style.left = x + "px";
+    food.style.top = y + "px";
+    
+    document.getElementsByClassName('newDiv')[0].appendChild(food);
+
+
+}
+
+function handler(event) {
+    
+    
+    switch (event.keyCode) {
+        
+        case 37:
+            if (snake.body[0].style.left == '')
+                snake.body[0].style.left = '0px';
+            else {
+                if (parseInt(snake.body[0].style.left) != 0 && snake.direction != "right") {
+                    
+                    tempX = parseInt(snake.body[0].style.left) || 0;
+                    tempY = parseInt(snake.body[0].style.top) || 0;
+                    if (chekCross("left")) {
+                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                        clearSnake();
+                        buildSnake(snkLen);
+                    } else if (isFood(tempX - 55, tempY)) {
+                        break
+                    } 
+                    else {
+                        snake.body[0].style.left = (parseInt(snake.body[0].style.left) - 55) + "px";
+                        moveBody(tempX, tempY);
+                        snake.direction = "left";
+                    }
+                } else 
+                {
+                    alert('Вы проиграли' + "\n" + 'Съедено ' + snake.foodAm);
+                    document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                    clearSnake();
+                    buildSnake(snkLen);
+                }
+            
+            
+            
+            }
+            
+            break
+        case 38:
+            if (snake.body[0].style.top == '')
+                snake.body[0].style.top = '0px';
+            else {
+                if (parseInt(snake.body[0].style.top) != 0 && snake.direction != "bottom") {
+                    
+                    tempX = parseInt(snake.body[0].style.left) || 0;
+                    tempY = parseInt(snake.body[0].style.top) || 0;
+                    if (chekCross("top")) {
+                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                        clearSnake();
+                        buildSnake(snkLen);
+                    } else if (isFood(tempX, tempY - 55)) {
+                        break
+                    } 
+                    else {
+                        snake.body[0].style.top = (parseInt(snake.body[0].style.top) - 55) + "px";
+                        moveBody(tempX, tempY);
+                        snake.direction = "top";
+                    }
+                } else {
+                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                    clearSnake();
+                    buildSnake(snkLen);
+                }
+            
+            }
+            break
+        case 39:
+            if (snake.body[0].style.left == '')
+                snake.body[0].style.left = '0px';
+            {
+                if (snake.body[0].style.left != '495px' && snake.direction != "left") {
+                    
+                    tempX = parseInt(snake.body[0].style.left) || 0;
+                    tempY = parseInt(snake.body[0].style.top) || 0;
+                    if (chekCross("right")) {
+                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                        clearSnake();
+                        buildSnake(snkLen);
+                    } else if (isFood(tempX + 55, tempY)) {
+                        break
+                    } 
+                    else {
+                        snake.body[0].style.left = (parseInt(snake.body[0].style.left) + 55) + "px";
+                        moveBody(tempX, tempY);
+                        snake.direction = "right";
+                    }
+                } else {
+                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                    clearSnake();
+                    buildSnake(snkLen);
+                }
+            
+            }
+            break
+        
+        case 40:
+            if (snake.body[0].style.top == '')
+                snake.body[0].style.top = '0px';
+            {
+                if (snake.body[0].style.top != '495px' && snake.direction != "top") {
+                    
+                    tempX = parseInt(snake.body[0].style.left) || 0;
+                    tempY = parseInt(snake.body[0].style.top) || 0;
+                    if (chekCross("bottom")) {
+                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                        clearSnake();
+                        buildSnake(snkLen);
+                    } else if (isFood(tempX, tempY + 55)) {
+                        break
+                    } 
+                    else {
+                        snake.body[0].style.top = (parseInt(snake.body[0].style.top) + 55) + "px";
+                        moveBody(tempX, tempY);
+                        snake.direction = "bottom";
+                    }
+                } else {
+                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    document.getElementsByClassName('newDiv')[0].innerHTML = '';
+                    clearSnake();
+                    buildSnake(snkLen);
+                
+                }
+                
+            }
+            break
+    }
+    text.innerHTML = "Проехали: " + "<strong>" + snake.route + "</strong>" + "\n" + "Съели: " + "<strong>" + snake.foodAm + "</strong>";
+}
 
 
 
