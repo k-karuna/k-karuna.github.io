@@ -74,7 +74,11 @@
 <script>
 
 
-document.addEventListener('keydown', handler);
+document.addEventListener('keydown', addBuff);
+var buffer = {};
+function addBuff(e){
+  buffer.code = e.keyCode;
+}
 
 var snake = {
     body: [],
@@ -112,6 +116,8 @@ function buildSnake(n) {
         element.style.top = "0px";
         document.getElementsByClassName('newDiv')[0].appendChild(element);
         snake.body[n - i] = element;
+        buffer.code = undefined;
+
         if (i == n)
             element.style.backgroundColor = "rgb(34, 110, 59)";
     }
@@ -122,6 +128,9 @@ function buildSnake(n) {
 
 buildSnake(snkLen);
 var tempX, tempY;
+var time = prompt("Задайте скорость: ", 200);
+var intervalId = setInterval(handler, time, buffer);
+
 
 
 
@@ -247,7 +256,7 @@ function createFood() {
 function handler(event) {
     
     
-    switch (event.keyCode) {
+    switch (event.code) {
         
         case 37:
             if (snake.body[0].style.left == '')
@@ -258,7 +267,7 @@ function handler(event) {
                     tempX = parseInt(snake.body[0].style.left) || 0;
                     tempY = parseInt(snake.body[0].style.top) || 0;
                     if (chekCross("left")) {
-                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
@@ -272,7 +281,7 @@ function handler(event) {
                     }
                 } else 
                 {
-                    alert('Вы проиграли' + "\n" + 'Съедено ' + snake.foodAm);
+                    alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                     document.getElementsByClassName('newDiv')[0].innerHTML = '';
                     clearSnake();
                     buildSnake(snkLen);
@@ -292,7 +301,7 @@ function handler(event) {
                     tempX = parseInt(snake.body[0].style.left) || 0;
                     tempY = parseInt(snake.body[0].style.top) || 0;
                     if (chekCross("top")) {
-                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
@@ -305,7 +314,7 @@ function handler(event) {
                         snake.direction = "top";
                     }
                 } else {
-                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                     document.getElementsByClassName('newDiv')[0].innerHTML = '';
                     clearSnake();
                     buildSnake(snkLen);
@@ -322,7 +331,7 @@ function handler(event) {
                     tempX = parseInt(snake.body[0].style.left) || 0;
                     tempY = parseInt(snake.body[0].style.top) || 0;
                     if (chekCross("right")) {
-                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
@@ -335,7 +344,7 @@ function handler(event) {
                         snake.direction = "right";
                     }
                 } else {
-                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                     document.getElementsByClassName('newDiv')[0].innerHTML = '';
                     clearSnake();
                     buildSnake(snkLen);
@@ -353,7 +362,7 @@ function handler(event) {
                     tempX = parseInt(snake.body[0].style.left) || 0;
                     tempY = parseInt(snake.body[0].style.top) || 0;
                     if (chekCross("bottom")) {
-                        alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                        alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);;
                         document.getElementsByClassName('newDiv')[0].innerHTML = '';
                         clearSnake();
                         buildSnake(snkLen);
@@ -366,7 +375,7 @@ function handler(event) {
                         snake.direction = "bottom";
                     }
                 } else {
-                    alert('Вы проиграли' + "\n" + 'Съедено: ' + snake.foodAm);
+                    alert('Вы проиграли' + "\n" + 'На скорости ' + time + ' вы съели: ' + snake.foodAm);
                     document.getElementsByClassName('newDiv')[0].innerHTML = '';
                     clearSnake();
                     buildSnake(snkLen);
