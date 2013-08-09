@@ -76,8 +76,11 @@ document.addEventListener('keydown', handler);
 
 var snake = {
   body: [],
-  route: 0
+  route: 0,
+  direction : "right"
 }
+
+
 var text = document.getElementById('len');
 
 function buildSnake(n){
@@ -87,6 +90,7 @@ function buildSnake(n){
       element.classList.add('newDiv__inner');
       element.id = 5 - i;
       element.style.left = (55 * (i - 1)) + "px";
+      element.style.top = "0px";
       document.getElementsByClassName('newDiv')[0].appendChild(element);
       snake.body[5 - i] = element;
       }
@@ -97,6 +101,14 @@ function buildSnake(n){
 
 buildSnake(5);
 var tempX, tempY;
+
+function chekCross(direction){
+
+  switch(direction){
+    
+  }
+
+}
 
 function moveBody(x, y){
   var arr = [];
@@ -126,7 +138,8 @@ function handler(event){
 switch (event.keyCode){
 
 case 37: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; else {
-        if(parseInt(snake.body[0].style.left) != 0){
+        if(parseInt(snake.body[0].style.left) != 0 && snake.direction != "right"){
+        snake.direction = "left";
         tempX = parseInt(snake.body[0].style.left) || 0;
         tempY = parseInt(snake.body[0].style.top) || 0;
         snake.body[0].style.left = (parseInt(snake.body[0].style.left) - 55) + "px";
@@ -138,7 +151,8 @@ case 37: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; e
 
         break
 case 38: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px'; else {
-            if(parseInt(snake.body[0].style.top) != 0){
+            if(parseInt(snake.body[0].style.top) != 0 && snake.direction != "bottom"){
+              snake.direction = "top";
               tempX = parseInt(snake.body[0].style.left) || 0;
               tempY = parseInt(snake.body[0].style.top) || 0;
               snake.body[0].style.top = (parseInt(snake.body[0].style.top) - 55) + "px";
@@ -148,7 +162,8 @@ case 38: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px'; els
           }
          break
 case 39: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; {
-        if(snake.body[0].style.left != '495px'){
+        if(snake.body[0].style.left != '495px' && snake.direction != "left"){
+          snake.direction = "right";
           tempX = parseInt(snake.body[0].style.left) || 0;
           tempY = parseInt(snake.body[0].style.top) || 0;
               snake.body[0].style.left = (parseInt(snake.body[0].style.left) + 55) + "px";
@@ -159,7 +174,8 @@ case 39: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; {
          break
 
 case 40: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px';  {
-            if(snake.body[0].style.top != '495px'){
+            if(snake.body[0].style.top != '495px' && snake.direction != "top"){
+              snake.direction = "bottom";
               tempX = parseInt(snake.body[0].style.left) || 0;
               tempY = parseInt(snake.body[0].style.top) || 0;
               snake.body[0].style.top = (parseInt(snake.body[0].style.top) + 55) + "px";
