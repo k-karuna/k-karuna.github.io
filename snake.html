@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="font-size:100%">
+<style>
+
+
+ .test{
+
+ 
+    color: red;
+ }
+
+
+ .test__hidden{
+
+    display: none;
+    
+    
+ }
+
+.test__transition{
+
+    -moz-transition: -moz-transform 3s, color 3s;
+    -webkit-transition: -webkit-transform 3s, color 3s;
+    -o-transition: -o-transform 3s, color 3s;
+    transition: color 3s, transform 3s;
+    
+
+}
+
+.newDiv{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 555px;
+    width: 555px;
+
+    border: 4px double black;
+    margin-left: -250px;
+    margin-top: 50px;
+}
+
+.newDiv__inner{
+    position: absolute;
+    width: 50px;
+    top: 5;
+    left: 5;
+    margin: 5px;
+
+    background-color: black;
+    height: 50px;
+     -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+
+}
+
+#len{
+  text-transform:uppercase;
+
+}
+</style>
+<div align="center" id="len"></div>
+<div class="newDiv">
+
+ 
+</div>
+</body>
+<script>
+
+document.addEventListener('keydown', handler);
+
+var snake = {
+  body: [],
+  route: 0
+}
+var text = document.getElementById('len');
+
+function buildSnake(n){
+    snake.len = n;
+    for (var i = n; i > 0; i--){
+      var element = document.createElement('div');
+      element.classList.add('newDiv__inner');
+      element.id = 5 - i;
+      element.style.left = (55 * (i - 1)) + "px";
+      document.getElementsByClassName('newDiv')[0].appendChild(element);
+      snake.body[5 - i] = element;
+      }
+    
+
+ 
+}
+
+buildSnake(5);
+var tempX, tempY;
+
+function moveBody(x, y){
+  var arr = [];
+  snake.route++;
+
+  for(var i = 1; i < snake.len; i++){
+    var obj = {
+      X: parseInt(snake.body[i].style.left) || 0,
+      Y: parseInt(snake.body[i].style.top) || 0
+    }
+
+    arr[i] = obj;
+  }
+
+  snake.body[1].style.left = x + "px";
+  snake.body[1].style.top = y + "px";
+
+  for (var i = 2; i < snake.len; i++ ){
+
+    snake.body[i].style.left = arr[i - 1].X + "px";
+    snake.body[i].style.top = arr[i- 1].Y + "px";
+  }
+}
+
+function handler(event){
+
+switch (event.keyCode){
+
+case 37: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; else {
+        if(parseInt(snake.body[0].style.left) != 0){
+        tempX = parseInt(snake.body[0].style.left) || 0;
+        tempY = parseInt(snake.body[0].style.top) || 0;
+        snake.body[0].style.left = (parseInt(snake.body[0].style.left) - 55) + "px";
+        moveBody(tempX, tempY); 
+        } else
+
+        return
+        }
+
+        break
+case 38: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px'; else {
+            if(parseInt(snake.body[0].style.top) != 0){
+              tempX = parseInt(snake.body[0].style.left) || 0;
+              tempY = parseInt(snake.body[0].style.top) || 0;
+              snake.body[0].style.top = (parseInt(snake.body[0].style.top) - 55) + "px";
+              moveBody(tempX, tempY);
+}        else 
+              return
+          }
+         break
+case 39: if (snake.body[0].style.left == '') snake.body[0].style.left = '0px'; {
+        if(snake.body[0].style.left != '495px'){
+          tempX = parseInt(snake.body[0].style.left) || 0;
+          tempY = parseInt(snake.body[0].style.top) || 0;
+              snake.body[0].style.left = (parseInt(snake.body[0].style.left) + 55) + "px";
+              moveBody(tempX, tempY);
+}        else 
+              return
+            }
+         break
+
+case 40: if (snake.body[0].style.top == '') snake.body[0].style.top = '0px';  {
+            if(snake.body[0].style.top != '495px'){
+              tempX = parseInt(snake.body[0].style.left) || 0;
+              tempY = parseInt(snake.body[0].style.top) || 0;
+              snake.body[0].style.top = (parseInt(snake.body[0].style.top) + 55) + "px";
+              moveBody(tempX, tempY);
+}        else 
+              return
+          }
+         break
+}
+text.innerHTML = "Проехали: " + "<strong>" + snake.route + "</strong>";
+}    
+
+
+
+</script>
+</html>
+
