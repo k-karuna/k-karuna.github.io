@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0143)https://jim24.mail.ru/communicate.html?usedBranch=master&path=u%2Fwebagent%2Frelease%2F264&xdm_e=https%3A%2F%2Fe.mail.ru&xdm_c=default2&xdm_p=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        
+        <script type="text/javascript">
+            function parseGet () {
+                var request = {};
+                var params = (''+document.location).match(/[^?#]+/g);
+                params.shift();
+                params.join('&').replace(/([^&=]+)=([^&]+)/g, function (nope, key, value) {
+                    value = decodeURIComponent(value);
+                    request[key] = value;
+                });
+                return request;
+            }
+
+            function parseTmpl () {
+                var args = Array.prototype.slice.call(arguments, 0);
+                var format = args.shift();
+                return format.replace(/\{(\d+)\}/g, function (ignored, i) {
+                    return args[i];
+                });
+            }
+
+
+            function stripAll (str) {
+                return (str || '').replace(/[^a-z0-9-]+/g, '');
+            }
+
+            function stripPath (str) {
+                return (str || '').replace(/[^a-z0-9-\/]+/g, '');
+            }
+
+
+            (function () {
+                var get = parseGet();
+                var subdomain = 'img', domain = 'imgs';
+                if ( get.server && get.branch ) {
+                    subdomain = stripAll(get.branch);
+                    domain = stripAll(get.server) + '.';
+                    if (domain.match(/files/i)) {
+                        return; /* deny */
+                    }
+                }
+
+                var url = parseTmpl(
+                    '//{0}.{1}mail.ru/{2}/server-provider.js?{3}',
+                    subdomain,
+                    domain,
+                    stripPath(get.path || 'r/webagent/build'),
+                    stripAll(get.build || '')
+                );
+
+                document.write('<scr' + 'ipt type="text/javascript" src="' + url + '"></scr' + 'ipt>');
+            })()
+        </script><script type="text/javascript" src="server-provider.js"></script>
+
+    </head>
+    <body>
+    
+
+</body></html>
