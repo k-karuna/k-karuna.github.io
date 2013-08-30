@@ -4,8 +4,15 @@
 		var params = location.search;
 
 		window.onload = function(){
-			document.write(params);
+			
+			params = params.substrung(1);
+			var obj = {};
+			for(var i = 0; i < 2; i++){
+				obj[params.slice(0, params.indexOf('='))] = params.slice(str.indexOf('=') + 1, params.indexOf('&'));
+				params = params.substring(params.indexOf('&') + 1);
+			}
 
+			alert(obj);
 
 		}	
 
