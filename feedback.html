@@ -17,6 +17,9 @@
 			 function frameOnLoad(event){
 				var iFrame = event.currentTarget;
 				var obj = JSON.parse(iFrame.contentDocument.documentElement.textContent);
+				for(var key in obj){
+					textarea.textContent += key + ' : ' + obj[key] = '\n';
+				}
 			}
 
 			feedBack.addEventListener('submit', function(event){
