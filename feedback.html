@@ -1,0 +1,41 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form method="GET" id="feedBack" action="feedBack_action.html">
+		<input name="heading">
+		<input name="body" style="width: 500px">
+		<input type="submit" style="display: block">
+	</form>
+	<textarea id="answer"></textarea>
+	</body>
+	<script>
+		window.onload = function(){
+			var feedBack = document.getElementById('feedBack');
+			var flag = false;
+
+			feedBack.addEventListener('submit', function(event){
+				if(flag) return;
+
+				var form = event.currentTarget;
+				var formAction = form.action;
+				var iFrame = document.createElement('iframe');
+				var iFrameId = 'uuid' + Date.now();
+
+				event.preventDefault();
+
+				form.target = iFrameId;
+				iFrame.id = iFrameId;
+
+				document.body.appendChild(iFrame);
+				flag = true;
+				iFrame.onload = function(event){
+					var iFrame = event.currentTarget;
+					alert(iFrame.contentDocument.documentElement.textContent);
+				}
+				form.submit();
+				flag = false;
+			});
+		}
+	</script>
+</html>
