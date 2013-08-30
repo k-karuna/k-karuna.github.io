@@ -5,14 +5,15 @@
 
 		window.onload = function(){
 			
-			params = params.substrung(1);
+			params = params.substring(1);
 			var obj = {};
 			for(var i = 0; i < 2; i++){
-				obj[params.slice(0, params.indexOf('='))] = params.slice(str.indexOf('=') + 1, params.indexOf('&'));
+				obj[params.slice(0, params.indexOf('='))] = params.slice(params.indexOf('=') + 1, params.indexOf('&'));
 				params = params.substring(params.indexOf('&') + 1);
 			}
-
-			alert(obj);
+			
+			var str = JSON.stringify(obj);
+			document.write(str);
 
 		}	
 

@@ -14,6 +14,11 @@
 			var feedBack = document.getElementById('feedBack');
 			var flag = false;
 
+			 function frameOnLoad(event){
+				var iFrame = event.currentTarget;
+				var obj = JSON.parse(iFrame.contentDocument.documentElement.textContent);
+			}
+
 			feedBack.addEventListener('submit', function(event){
 				if(flag) return;
 
@@ -29,10 +34,7 @@
 
 				document.body.appendChild(iFrame);
 				flag = true;
-				iFrame.onload = function(event){
-					var iFrame = event.currentTarget;
-					alert(iFrame.contentDocument.documentElement.textContent);
-				}
+				iFrame.onload = frameOnLoad;
 				form.submit();
 				flag = false;
 			});
