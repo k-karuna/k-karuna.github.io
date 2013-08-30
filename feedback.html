@@ -21,6 +21,7 @@
 				for(var key in obj){
 					textarea.textContent += key + ' : ' + obj[key] + '\n';
 				}
+				iFrame.parentNode.removeChild(iFrame);
 			}
 
 			feedBack.addEventListener('submit', function(event){
