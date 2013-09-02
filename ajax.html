@@ -6,9 +6,9 @@
 	</script>
 	<script>
 	 $("#btn").click(function(){
-      $.ajax({url:"example.json", 
-         data:"x=4&y=5", 
-         success:function(result){
+      $.ajax({url:"example.json",
+        dataType: 'json', 
+        success: function(result){
             alert("OK");},
         beforeSend: function(){
         	alert('beforeSend');
