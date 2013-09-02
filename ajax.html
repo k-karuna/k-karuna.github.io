@@ -9,7 +9,16 @@
       $.ajax({url:"example.json", 
          data:"x=4&y=5", 
          success:function(result){
-            alert("OK");}
+            alert("OK");},
+        beforeSend: function(){
+        	alert('beforeSend');
+        },
+        error: function(){
+        	alert('error!');
+        },
+        complete: function(){
+        	alert('complete');
+        }
       });
    });
 	</script>
