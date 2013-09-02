@@ -5,19 +5,13 @@
 		
 	</script>
 	<script>
-	$('#btn').click(function(){
-
-	$.ajax({
-    	url: 'example.json',             
-   		dataType : "json", 
-
-    	success: function (data) { 
-        $.each(data, function(i, val) {   
-            alert(i, ' : ', val);
-        });
-    } 
-});
-});
+	 $("#btn").click(function(){
+      $.ajax({url:"example.json", 
+         data:"x=4&y=5", 
+         success:function(result){
+            alert("OK");}
+      });
+   });
 	</script>
 </body>
 </html>
