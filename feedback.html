@@ -18,7 +18,7 @@
 				var iFrame = event.currentTarget;
 				var obj = JSON.parse(iFrame.contentDocument.documentElement.textContent);
 				var textarea = document.getElementById('answer');
-				for(var key in obj){
+				for(var key in obj) if(obj.hasOwnProperty(key)) {
 					textarea.textContent += key + ' : ' + obj[key] + '\n';
 				}
 				iFrame.parentNode.removeChild(iFrame);

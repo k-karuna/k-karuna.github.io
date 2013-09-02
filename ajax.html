@@ -1,0 +1,23 @@
+<html>
+<body>
+	<button id="btn">Click<button>
+	<script src="http://code.jquery.com/jquery-latest.js">
+		
+	</script>
+	<script>
+	$('#btn').click(function(){
+
+	$.ajax({
+    	url: 'example.json',             
+   		dataType : "json", 
+
+    	success: function (data) { 
+        $.each(data, function(i, val) {   
+            alert(i, ' : ', val);
+        });
+    } 
+});
+});
+	</script>
+</body>
+</html>
