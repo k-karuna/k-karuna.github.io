@@ -11,7 +11,7 @@
         dataType: 'json', 
         success: function(result){
             $.each(result, function(key, value){
-            	$('#content').innerHTML = $('#content')[0].textContent + key + ' : ' + value + '\n');
+            	$('#content').innerHTML = $('#content')[0].textContent + key + ' : ' + value + '\n';
             })},
         beforeSend: function(){
         	alert('beforeSend');
