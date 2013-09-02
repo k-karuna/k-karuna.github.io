@@ -1,6 +1,7 @@
 <html>
 <body>
 	<button id="btn">Click</button>
+	<div id="content"></div>
 	<script src="http://code.jquery.com/jquery-latest.js">
 		
 	</script>
@@ -9,7 +10,9 @@
       $.ajax({url:"example.json",
         dataType: 'json', 
         success: function(result){
-            alert("OK");},
+            $.each(result, function(key, value){
+            	$.('#content').innerHTML($.('#content') + key + ' : ' + value + '\n');
+            })},
         beforeSend: function(){
         	alert('beforeSend');
         },
