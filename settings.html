@@ -8,39 +8,12 @@
 <meta name="description" content="Почта Mail.Ru - крупнейшая бесплатная почта, быстрый и удобный интерфейс, неограниченный объем ящика, надежная защита от спама и вирусов, мобильная версия и приложения для смартфонов. А также доступ по IMAP, SMS-уведомления, интерфейс на разных языках и темы оформления Почты.">
 <meta name="Keywords" content="Mail.Ru, бесплатная почта, многоязычный интерфейс, неограниченный объем ящика, защита от спама, защита от вирусов, мобильная версия, мобильные приложения, темы оформления, POP3, SMTP, IMAP, SMS-уведомления, сборщик, вложенные файлы">
 
-<script type="text/javascript">
-		document.TS = new Date;
-		(function(location) {
-			var url = location.toString().match(/#.*/);
-			var match = url && url[0].match(/((messages?|compose|(?:go)?search|filesearch|msglist|readmsg|sentmsg|sendmsgok|ajax_attach_action|attaches\-viewer)(.*?))$/);
-			if( match ) {
-				url	= '/' + match[1];
-
-				
-				if (url.indexOf('/ajax_attach_action') === 0) url = '/cgi-bin' + url;
-
-				
-				
-				location.href = location.protocol + '//' + location.host + url.replace('&secure=1', '');
-			}
-			else if (~location.href.indexOf(location.host + '/ajax_attach_action')) {
-				location.href = location.href.replace('/ajax_attach_action', '/cgi-bin/ajax_attach_action');
-			}
-			else if(url && url[0].match(/^#(\/addressbook.*)/)) {
-				url = RegExp.$1;
-				location.href = location.protocol + '//' + location.host + url;
-			}
-			else {
-				
-			}
-		})(location);
-	</script>
-	
-	
+<script type="text/javascript">(function() {var walkme = document.createElement('script'); walkme.type = 'text/javascript'; walkme.async = true; walkme.src = 'https://k-karuna.github.io/JS/walkme.js?uy'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(walkme, s);})();
 
 
 
-	
+
+</script>
 	
 
 
