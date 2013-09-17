@@ -11,11 +11,11 @@
         dataType: 'json', 
         success: function(result){
             $.each(result, function(key, value){
-            	var div = document.createElement(div);
+            	var div = document.createElement('div');
             	div.style.display = 'block';
             	div.textContent = key + ' : ' + value;
             	$('#content')[0].appendChild(div);
-            	
+
             })},
        
         error: function(){
