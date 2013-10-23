@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" href="index.css" />		
+	</head>
+	<body>
+		<div class='main'>
+			<form class='form' method='post' action='http://google.com'>
+				<div class='form__main-label'>Registration</div>
+				<div class='form__content'>
+					<div class='form__row'>						
+						<label class='form__content-left form__content-left_required' for='name'>Name: </label>						
+						<div class='form__content-right'>
+							<input class='form__content-right__input' type='text' id='name' required='required'></input>		
+						</div>						
+					</div>
+					<div class='form__row'>
+						<label class='form__content-left form__content-left_required' for='surname'>Surname: </label>						
+						<div class='form__content-right'>
+							<input class='form__content-right__input' required='required' type='text' id='surname'></input>		
+						</div>
+					</div>
+					<div class='form__row'>
+						<label class='form__content-left form__content-left_required' for='email'>E-mail: </label>						
+						<div class='form__content-right'>
+							<input class='form__content-right__input' required='required' type='email' id='email'></input>		
+						</div>
+					</div>
+					<div class='form__row'>
+						<label class='form__content-left form__content-left_required' for='password'>Password: </label>						
+						<div class='form__content-right'>
+							<input class='form__content-right__input' required='required' type='password' id='password'></input>		
+						</div>
+					</div>
+					<div class='form__row'>
+						<label class='form__content-left'>Sex: </label>						
+						
+						<label class='form__content-right__radio'><input type='radio' value='M' name='na'></input>Male</label>
+						<label class='form__content-right__radio'><input type='radio' value='F' name='na'></input>Female</label>	
+						<label class='form__content-right__radio'><input type='radio' value='U' name='na'></input>Undefined</label>	
+						
+					</div>
+					<div class='form__row'>
+						<label class='form__content-left' for='password'>Birthdate</label>
+						
+							<select id="bd-month" name="db-month" class="form__content-right__select">
+                            <option value=""></option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>                      		
+						
+						
+							<select id="bd-day" name="db-day" class="form__content-right__select">
+                            <option></option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        
+					</div>					
+				</div>
+				<div class='form__footer'>
+					<button type="submit" class="form__button">Registration</button>
+				</div>
+
+			</form>	
+				
+		</div>
+	</body>
+</html>
