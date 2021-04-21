@@ -2,7 +2,7 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Atomex</title>
-        <link>https://k-karuna.github.io/appcast.xml</link>
+        <link>https://raw.githubusercontent.com/k-karuna/k-karuna.github.io/master/appcast.xml</link>
         <description>Atomex latest release.</description>
         <language>en</language>
         <item>
