@@ -2,7 +2,7 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Atomex</title>
-        <link>http://192.168.1.145:5000/appcast.xml</link>
+        <link>http://k-karuna.github.io/appcast.xml</link>
         <description>Atomex latest release.</description>
         <language>en</language>
         <item>
@@ -11,7 +11,7 @@
             https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 21 Apr 2021 10:30:00 +0000</pubDate>
-            <enclosure url="http://192.168.1.145:5000/Atomex%201.0.73.dmg"
+            <enclosure url="https://pi.turborouter.keenetic.pro/f/6d1051766a384f2fb4ab/?dl=1"
                        sparkle:version="2.0"
                        sparkle:os="macos"
                        length="57287578"
