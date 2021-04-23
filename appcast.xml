@@ -11,12 +11,12 @@
             https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 21 Apr 2021 10:30:00 +0000</pubDate>
-            <enclosure url="https://pi.turborouter.keenetic.pro/f/6d1051766a384f2fb4ab/?dl=1"
+            <enclosure url="https://pi.turborouter.keenetic.pro/f/55fc06c7ae8b45519918/?dl=1"
                        sparkle:version="2.0"
                        sparkle:os="macos"
                        length="57287578"
                        type="application/octet-stream"
-                       sparkle:signature="r6Vew7aB2RxXmVsWzC3AGqsq46KwlpwkCjnBKJOlVkGLyY9YQrUpgvYSECIIDc87YNKs1Vm78WekrvbZ9lHYDg==" />
+                       sparkle:signature="ygT3AxZWEbnMc3pin6ZDERC6ftxACPKPYJIIe8Fd9M49O79gXZR5XzYGhQde4k1HYNYMt3ITSevaqc5gsiH7AA==" />
         </item>
     </channel>
 </rss>
