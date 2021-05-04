@@ -6,7 +6,7 @@
         <description>Atomex latest release.</description>
         <language>en</language>
         <item>
-            <title>Version 2.0.0 (Macos Updater Ready)</title>
+            <title>Version 2.0.0 (Macos Updater Ready, reupload)</title>
             <sparkle:releaseNotesLink>
             https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
             </sparkle:releaseNotesLink>
@@ -14,9 +14,9 @@
             <enclosure url="https://pi.turborouter.keenetic.pro/f/55fc06c7ae8b45519918/?dl=1"
                        sparkle:version="2.0.0"
                        sparkle:os="macos"   
-                       length="57347643"
+                       length="57342523"
                        type="application/octet-stream"
-                       sparkle:signature="lOq3QGRDaqQa63rDzh9xXxRhKj5y/txgLXh6z4GYN/ZpnJ1qtnhfTje3OTRq+vBwA77dAyesex/OSpnf1KZUAQ==" />
+                       sparkle:signature="eLWRQSbiRETky6+ykl/9o7S73DhceHj8Jq+4NKFH16EOsY6ySYOaot9Py8G07vZ4D5seoXVvNKNq62Hfa55GCA==" />
         </item>
     </channel>
 </rss>
