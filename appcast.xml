@@ -6,17 +6,17 @@
         <description>Atomex latest release.</description>
         <language>en</language>
         <item>
-            <title>Version 1.0.76 (First release)</title>
+            <title>Version 1.0.78</title>
             <sparkle:releaseNotesLink>
             https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 4 May 2021 10:30:00 +0000</pubDate>
             <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.75/Atomex.zip"
-                       sparkle:version="1.0.77"
+                       sparkle:version="1.0.78"
                        sparkle:os="macos"
-                       length="57343327"
+                       length="57343668"
                        type="application/octet-stream"
-                       sparkle:signature="ZISZ4hcO27ab+MrDfrhfVxT/GgVHSNC1cm0PbS3t4yJw0NRVq1ehzpjN0zvsUQW55kP2NlUyd+jJVAgPKdF7CA==" />
+                       sparkle:signature="gnwnkfCALotV63i1qI20kgKKtDCdzR7NLY22YOS7fRnAP8E4ih6h62brQGMUTiVw3rOwXQycLka50x/igAqBAw==" />
         </item>
     </channel>
 </rss>
