@@ -12,11 +12,11 @@
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 4 May 2021 10:30:00 +0000</pubDate>
             <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.75/Atomex.zip"
-                       sparkle:version="1.0.76"
+                       sparkle:version="1.0.77"
                        sparkle:os="macos"
-                       length="57339043"
+                       length="57343327"
                        type="application/octet-stream"
-                       sparkle:signature="gI/PeUlroHNyeuHPPARAN63rNARMGKdgiBzlDjQc4eBJR/mGsOLxTGjAOYAjGljw0m7LimqG0RBqEWdA6a3aCg==" />
+                       sparkle:signature="ZISZ4hcO27ab+MrDfrhfVxT/GgVHSNC1cm0PbS3t4yJw0NRVq1ehzpjN0zvsUQW55kP2NlUyd+jJVAgPKdF7CA==" />
         </item>
     </channel>
 </rss>
