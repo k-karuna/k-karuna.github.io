@@ -14,9 +14,9 @@
             <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.75/Atomex.zip"
                        sparkle:version="1.0.76"
                        sparkle:os="macos"
-                       length="57340240"
+                       length="57339043"
                        type="application/octet-stream"
-                       sparkle:signature="mlkNIEXd7kfm2/My6z3FF+Xx/ah3q9FuMaCUSllZ3wtUiF9sOElNSnq9c7VPNvEg0vdSot+GqYtvA0Kxhf4XDw==" />
+                       sparkle:signature="gI/PeUlroHNyeuHPPARAN63rNARMGKdgiBzlDjQc4eBJR/mGsOLxTGjAOYAjGljw0m7LimqG0RBqEWdA6a3aCg==" />
         </item>
     </channel>
 </rss>
