@@ -2,21 +2,18 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Atomex</title>
-        <link>https://raw.githubusercontent.com/k-karuna/k-karuna.github.io/master/appcast.xml</link>
-        <description>Atomex latest release.</description>
+        <link>https://github.com/atomex-me/atomex.client.desktop/releases/latest/download/appcast.xml</link>
+        <description>Atomex release Version 1.0.76</description>
         <language>en</language>
         <item>
             <title>Version 1.0.76</title>
-            <sparkle:releaseNotesLink>
-            https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
-            </sparkle:releaseNotesLink>
-            <pubDate>Wed, 4 May 2021 10:30:00 +0000</pubDate>
-            <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.75/Atomex.zip"
+            <pubDate>Wed, 19 May 2021 13:12:16 GMT</pubDate>
+            <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.76/Atomex.zip"
                        sparkle:version="1.0.76"
                        sparkle:os="macos"
-                       length="57344987"
+                       length="57343377"
                        type="application/octet-stream"
-                       sparkle:signature="NUMfMuG7iBOGEWy0T3nksndBxUBxfZU96piHYBlscBBb4Z62hPkLCf/YYT01iwIBFscAgkLWABMRHoiaousBAA==" />
+                       sparkle:signature="MpQqz3N14awBrkffj9UN6VjaeFzxV1ZMHbU7SbcvNttGinxtmADw/RS2M4wF62xMG/319JyvItZ2CKquff8/DQ==" />
         </item>
     </channel>
 </rss>
