@@ -6,13 +6,13 @@
         <description>Atomex latest release.</description>
         <language>en</language>
         <item>
-            <title>Version 1.0.75</title>
+            <title>Version 1.0.76</title>
             <sparkle:releaseNotesLink>
             https://netsparkleupdater.github.io/NetSparkle/files/sample-app/2.0-release-notes.md
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 4 May 2021 10:30:00 +0000</pubDate>
             <enclosure url="https://github.com/atomex-me/atomex.client.desktop/releases/download/1.0.75/Atomex.zip"
-                       sparkle:version="1.0.75"
+                       sparkle:version="1.0.76"
                        sparkle:os="macos"
                        length="57344987"
                        type="application/octet-stream"
