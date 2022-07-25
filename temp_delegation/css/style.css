@@ -1,0 +1,555 @@
+body {
+    font-family: "Nunito", sans-serif;
+    position: relative;
+}
+
+.navbar {
+    background-color: transparent;
+    transition: all .5s ease-in-out;
+}
+
+.navbar-light {
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(36,36,36,.2);
+}
+
+.navbar-dark .logo-light {
+    display: none;
+}
+
+.navbar-light .logo-dark {
+    display: none;
+}
+
+.navbar-light .navbar-nav a {
+    color: #3665ac;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.media-logo img {
+	height: 60px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.media-logo-dapp img {
+	height: 90px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.media-logo-baking-bad img {
+	height: 110px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar .navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navbar-dark .container .navbar-nav a {
+    color: #fff;
+}
+
+.navbar-light .container .navbar-nav a {
+    color: #3665ac;
+}
+
+.navbar .container .navbar-nav li {
+    padding: 0 7px;
+}
+
+.navbar .container .navbar-nav li:last-of-type,
+.navbar .container .navbar-nav li:last-of-type a {
+    padding-right: 0;
+}
+
+.navbar .container .navbar-nav .active {
+    color: #0fd4e2;
+}
+
+.home-section {
+    padding: 160px 0;
+    color: #fff;
+    background-color: #3665ac;
+}
+
+.about-section {
+    padding: 120px 0;
+}
+
+.terms-section {
+	padding: 120px 0;
+}
+
+.download-section {
+    padding: 120px 0;
+    background-color: #f9f9f9;
+}
+
+.currencies-section {
+    padding: 120px 0;
+    background-color: #fff;
+}
+
+.media-section {
+	padding: 120px 0;
+	background-color: #f9f9f9
+}
+
+.faq-section {
+    padding: 120px 0;
+    background-color: #fff;
+}
+
+.home-section h1 {
+    padding-top: 1.5rem;
+}
+
+.subtitle {
+    padding: 16px 0;
+    line-height: 1.8;
+    max-width: 450px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sub-h2 {
+    line-height: 1.8;
+    color: rgba(173, 173, 173, 0.9);
+}
+
+.currency-logo {
+    opacity: 0.8;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 160px;
+}
+
+.currency-logo:hover {
+    opacity: 1;
+}
+
+.flex {
+	display: flex;
+}
+
+.my-btn {
+    width: 160px;
+    line-height: 36px;
+    margin: 0 auto;
+    display: block;
+    margin: 10px auto;
+    background-color: #0e1119;
+    border: 1px solid #0e1119;
+    font-size: 14px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.my-btn:hover {
+    background-color: #2cb6edf3;
+    border: 1px solid #2cb6ed;
+}
+
+.dl-btn {
+	width: 190px;
+    padding: 12px 28px;
+    font-size: 14px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.dl-icon {
+    font-size: 5rem;
+    color: #3665ac;
+}
+
+.footer {
+    color: #fff;
+    background-color: #3665ac;
+}
+
+.footer a {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 14px;
+    line-height: 22px;
+    padding-bottom: 5px;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    padding-bottom: .2rem;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+.sub-h4 {
+    opacity: 0.6;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-links a {
+    font-size: 16px;
+    padding-right: 20px;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}
+
+/* .about-section h2 {
+    padding-bottom: 3rem;
+} */
+
+.advantage-card h4 {
+    margin-bottom: 15px;
+}
+
+.advantage-card {
+    padding: 20px;
+    border-radius: 5px;
+    transition: box-shadow .3s ease,-webkit-box-shadow .3s ease;
+}
+
+.advantage-card:hover {
+    box-shadow: 0 1px 15px rgba(0,0,0,.15);
+}
+
+.advantage-card i {
+    color: #3665ac;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.faq-link {
+    display: block;
+    cursor: pointer;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 35px;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    border-bottom: 1px solid #d8d8d8;
+    border-radius: 0;
+    font-weight: 600;
+}
+
+.faq-link::before {
+    content: '';
+    top: 50%;
+    right: 5px;
+    width: 18px;
+    height: 2px;
+    margin-top: -1px;
+    position: absolute;
+    background: #3665ac;
+    animation: spin3 .2s linear;
+}
+
+.faq-link.collapsed::before {
+    animation: spin1 .3s linear;
+    transform: rotate(180deg);
+}
+
+.faq-link::after {
+    content: '';
+    top: 50%;
+    right: 5px;
+    width: 18px;
+    height: 2px;
+    margin-top: -1px;
+    position: absolute;
+    background: #3665ac;
+    animation: spin4 .2s linear;
+}
+
+.faq-link.collapsed::after {
+    animation: spin2 .3s linear;
+    transform: rotate(90deg);
+}
+
+@keyframes spin1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes spin4 {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.faq-show  {
+    background-color: #fff;
+    padding-left: 15px;
+}
+
+.faq-show .card-body {
+    padding-left: 5px;
+}
+
+.faq-card {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 450px) {
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .navbar-nav a {
+        padding-left: 10px;
+    }
+
+    .navbar-nav li {
+        padding-bottom: 20px;
+    }
+
+    .navbar-nav li:first-of-type {
+        padding-top: 10px;
+    }
+
+    .navbar-nav li:last-of-type {
+        padding-bottom: 10px;
+    }
+
+    .home-section {
+        padding-top: 120px;
+        padding-bottom: 100px;
+    }
+
+    .home-section h1 {
+        padding-top: 0;
+    }
+
+    .macbook-wrapper {
+        padding-top: 60px;
+    }
+
+    .about-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .about-section h2 {
+        padding-bottom: 1.5rem;
+    }
+
+	.terms-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .terms-section h2 {
+        padding-bottom: 1.5rem;
+    }
+
+    .mobile-advantage {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-advantage i {
+        display: block;
+        width: 80px;
+        font-size: 55px;
+        padding-right: 20px;
+    }
+
+    .download-section {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .dl-block {
+        padding-bottom: 40px;
+    }
+
+    .currencies-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .faq-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .faq-section .sub-h2 {
+        margin-bottom: 2rem;
+    }
+
+    .footer .col-lg-3 {
+        padding-bottom: 10px;
+    }
+
+    .follow-us {
+        padding-top: 20px;
+        padding-bottom: 0;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+}
+
+.delegation .about-section {
+  padding: 60px 0;
+}
+
+.delegation .about-section p {
+  font-size: 1.1rem;
+}
+
+.delegation .navbar {
+  background-color: #3665ac;
+}
+
+.terms .terms-section {
+  padding: 60px 0;
+}
+
+.terms .terms-section p {
+  font-size: 1.1rem;
+}
+
+.terms .terms-section li {
+  font-size: 1.1rem;
+}
+
+.terms .navbar {
+  background-color: #3665ac;
+}
+
+.download-apple {
+  background: url(../img/download_buttons.svg) 0 -50px;
+}
+
+.download-play {
+  background: url(../img/download_buttons.svg) 0 -100px;
+}
+
+.download-apk {
+  background: url(../img/download_buttons.svg) 0 0;
+}
+
+.download-app-image {
+  width: 160px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.download-app-image-start {
+  width: 160px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
